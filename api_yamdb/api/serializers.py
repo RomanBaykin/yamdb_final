@@ -1,6 +1,7 @@
 from django.db.models import Avg
 from django.forms import ValidationError
 from rest_framework import serializers
+
 from reviews.models import Categories, Comment, Genres, Review, Title
 
 
