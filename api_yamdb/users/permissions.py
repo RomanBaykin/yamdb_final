@@ -9,3 +9,4 @@ class AdminOnlyPermission(permissions.BasePermission):
             return True
         elif request.user.is_authenticated and request.user.is_admin:
             return True
+        return None

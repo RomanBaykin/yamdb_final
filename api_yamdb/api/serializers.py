@@ -1,7 +1,6 @@
 from django.db.models import Avg
 from django.forms import ValidationError
 from rest_framework import serializers
-
 from reviews.models import Categories, Comment, Genres, Review, Title
 
 
@@ -54,8 +53,7 @@ class TitleGetSerializer(serializers.ModelSerializer):
     def get_rating(self, title):
         reviews = Review.objects.filter(title=title)
         rating = reviews.all().aggregate(Avg("score"))
-        result = rating["score__avg"]
-        return result
+        return rating["score__avg"]
 
 
 class CommentSerializer(serializers.ModelSerializer):

@@ -8,7 +8,6 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import AccessToken
-
 from users.models import User
 
 from .permissions import AdminOnlyPermission
@@ -73,7 +72,7 @@ class UserViewSet(viewsets.ModelViewSet):
             return Response(
                 "Email уже зарегестрирован", status=status.HTTP_400_BAD_REQUEST
             )
-        serializer.save()
+        return serializer.save()
 
     @action(
         detail=False,
@@ -92,3 +91,4 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
+        return None
