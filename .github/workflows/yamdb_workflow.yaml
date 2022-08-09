@@ -20,7 +20,7 @@ jobs:
           pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
           touch .env
           echo DEBUG=${{ secrets.DEBUG }} >> .env
-          echo SECRET_KEY= ${{ secrets.SECRET_KEY }} >> .env
+          echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
           pip install pytest
           cd api_yamdb/
           pip install -r requirements.txt
